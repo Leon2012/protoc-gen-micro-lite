@@ -7,15 +7,15 @@ import (
 	"strings"
 
 	pb "github.com/golang/protobuf/protoc-gen-go/descriptor"
-	"github.com/micro/protoc-gen-micro/generator"
+	"github.com/Leon2012/protoc-gen-micro-lite/generator"
 )
 
 // Paths for packages used by code generated in this file,
 // relative to the import_prefix of the generator.Generator.
 const (
 	contextPkgPath = "context"
-	clientPkgPath  = "github.com/micro/go-micro/client"
-	serverPkgPath  = "github.com/micro/go-micro/server"
+	clientPkgPath  = "github.com/Leon2012/go-micro-lite/client"
+	serverPkgPath  = "github.com/Leon2012/go-micro-lite/server"
 )
 
 func init() {
@@ -145,9 +145,6 @@ func (g *micro) generateService(file *generator.FileDescriptor, service *pb.Serv
 
 	// NewClient factory.
 	g.P("func New", servAlias, " (name string, c ", clientPkg, ".Client) ", servAlias, " {")
-	g.P("if c == nil {")
-	g.P("c = ", clientPkg, ".NewClient()")
-	g.P("}")
 	g.P("if len(name) == 0 {")
 	g.P(`name = "`, serviceName, `"`)
 	g.P("}")

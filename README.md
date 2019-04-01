@@ -1,11 +1,11 @@
-# protoc-gen-micro
+# protoc-gen-micro-lite
 
-This is protobuf code generation for micro. We use protoc-gen-micro to reduce boilerplate code.
+This is protobuf code generation for micro. We use protoc-gen-micro-lite to reduce boilerplate code.
 
 ## Install
 
 ```
-go get github.com/micro/protoc-gen-micro
+go get github.com/Leon2012/protoc-gen-micro-lite
 ```
 
 Also required: 
@@ -36,7 +36,7 @@ message Response {
 Generate the code
 
 ```
-protoc --proto_path=$GOPATH/src:. --micro_out=. --go_out=. greeter.proto
+protoc --proto_path=$GOPATH/src:. --micro-lite_out=. --go_out=. greeter.proto
 ```
 
 Your output result should be:
@@ -75,14 +75,14 @@ client := proto.NewGreeterService("greeter", service.Client())
 
 ### Errors
 
-If you see an error about `protoc-gen-micro` not being found or executable, it's likely your environment may not be configured correctly. If you've already installed `protoc`, `protoc-gen-go`, and `protoc-gen-micro` ensure you've included `$GOPATH/bin` in your `PATH`.
+If you see an error about `protoc-gen-micro-lite` not being found or executable, it's likely your environment may not be configured correctly. If you've already installed `protoc`, `protoc-gen-go`, and `protoc-gen-micro-lite` ensure you've included `$GOPATH/bin` in your `PATH`.
 
 Alternative specify the Go plugin paths as arguments to the `protoc` command
 
 ```
-protoc --plugin=protoc-gen-go=$GOPATH/bin/protoc-gen-go --plugin=protoc-gen-micro=$GOPATH/bin/protoc-gen-micro --proto_path=$GOPATH/src:. --micro_out=. --go_out=. greeter.proto
+protoc --plugin=protoc-gen-go=$GOPATH/bin/protoc-gen-go --plugin=protoc-gen-micro-lite=$GOPATH/bin/protoc-gen-micro-lite --proto_path=$GOPATH/src:. --micro-lite_out=. --go_out=. greeter.proto
 ```
 
 ## LICENSE
 
-protoc-gen-micro is a liberal reuse of protoc-gen-go hence we maintain the original license 
+protoc-gen-micro-lite is a liberal reuse of protoc-gen-go hence we maintain the original license 

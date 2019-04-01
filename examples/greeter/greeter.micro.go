@@ -19,8 +19,8 @@ import math "math"
 
 import (
 	context "context"
-	client "github.com/micro/go-micro/client"
-	server "github.com/micro/go-micro/server"
+	client "github.com/Leon2012/go-micro-lite/client"
+	server "github.com/Leon2012/go-micro-lite/server"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -51,9 +51,6 @@ type greeterService struct {
 }
 
 func NewGreeterService(name string, c client.Client) GreeterService {
-	if c == nil {
-		c = client.NewClient()
-	}
 	if len(name) == 0 {
 		name = "greeter"
 	}
